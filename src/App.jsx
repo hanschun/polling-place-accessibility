@@ -15,7 +15,15 @@ export class App extends Component {
       }
     }
   }
-  
+  componentDidMount() {
+    this.APIrequest =
+      request.get('http://saccounty.cloudapi.junar.com/api/v2/datastreams/SACRA-COUNT/data.json/?auth_key=433b19725ccfa10bd66f9297b441a93534ab78d1&limit=1000#sthash.Y4Gn4lrJ.dpuf')
+      .end((err, response) => {
+        console.log(response);
+      });
+
+  }
+
   render() {
     let styles = this.getStyles()
     const position = [38.5556, -121.4689]
